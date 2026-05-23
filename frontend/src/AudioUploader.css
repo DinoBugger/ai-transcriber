@@ -1,0 +1,129 @@
+.container {
+  max-width: 550px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333333;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
+.file-input {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.file-input input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.file-input input[type="file"]:hover {
+  border-color: #3b82f6;
+  background: #f0fdf4;
+}
+
+.upload-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.upload-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.upload-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.upload-btn:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.trans-result {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.trans-result h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.trans-result p {
+  background-color: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #334155;
+  min-height: 80px;
+  margin: 0;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.trans-result h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #475569;
+  margin: 0;
+}
+
+/* Style riêng cho nút tải file .txt */
+.download-txt-btn {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download-txt-btn:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+}
+
+.download-txt-btn:active {
+  transform: translateY(1px);
+}

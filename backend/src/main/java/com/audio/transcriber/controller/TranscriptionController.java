@@ -37,9 +37,8 @@ public class TranscriptionController {
   MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
   ResponseErrorHandler errorHandler = new DefaultResponseErrorHandler();
 
-
-  @Autowired
-  public TranscriptionController( @Value("${spring.ai.openai.api-key}") String apiKey, @Value("${spring.ai.openai.audio.transcription.options.model}") String modelName) {
+  public TranscriptionController(@Value("${spring.ai.openai.api-key}") String apiKey,
+      @Value("${spring.ai.openai.audio.transcription.options.model}") String modelName) {
     ApiKey apiKeyObj = () -> apiKey;
     OpenAiAudioApi audioApi = new OpenAiAudioApi(
         "https://api.openai.com",
@@ -47,10 +46,9 @@ public class TranscriptionController {
         headers,
         RestClient.builder(),
         WebClient.builder(),
-        errorHandler
-    );
+        errorHandler);
 
-    model= new OpenAiAudioTranscriptionModel(audioApi);
+    model = new OpenAiAudioTranscriptionModel(audioApi);
     options = OpenAiAudioTranscriptionOptions.builder()
         .responseFormat(TranscriptResponseFormat.TEXT)
         .temperature(0f)
@@ -58,10 +56,9 @@ public class TranscriptionController {
         .build();
   }
 
-
   @GetMapping("/local-test")
   public ResponseEntity<String> localTest() {
-    Resource resource =  new FileSystemResource("resources/audio-shortest.mp3");
+    Resource resource = new FileSystemResource("resources/audio-shortest.mp3");
     AudioTranscriptionPrompt prompt = new AudioTranscriptionPrompt(resource, options);
     AudioTranscriptionResponse response = model.call(prompt);
     return ResponseEntity.ok(response.getResult().getOutput());
@@ -69,7 +66,7 @@ public class TranscriptionController {
 
   @PostMapping
   public ResponseEntity<String> transcribeAudio(@RequestParam(value = "file", required = false) MultipartFile file) {
-    if(FileValidator.validateFile(file)!= null) {
+    if (FileValidator.validateFile(file) != null) {
       return ResponseEntity.status(400).body(FileValidator.validateFile(file));
     }
 
